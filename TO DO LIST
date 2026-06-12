@@ -1,0 +1,43 @@
+# project 4--- TO DO LIST:
+print("📋 Maintain your Everyday To - Do - List here...")
+print("M E N U \n1️⃣ ADD TASK \n2️⃣ SHOW TASKS \n3️⃣ DELETE TASK \n4️⃣ EXIT")
+
+my_tasks = []
+
+while True:
+    user_choice = input("Press: 1️⃣ to ADD TASK 2️⃣ to SHOW TASK 3️⃣ to DELETE TASK 4️⃣ to EXIT: ")
+
+    if user_choice == "1":
+        new_tasks = input("📝 Tell me your tasks: ")
+
+        my_tasks.append(new_tasks)
+        print(f"{new_tasks} added successfully! ✅")
+
+        add_more = input("🗃️ Do you want to add more tasks? y/n: ")
+
+        if add_more == "y":
+            continue
+
+    elif user_choice == "2":
+
+        if len(my_tasks) == 0:
+            print("You have to add to show tasks ❓❓")
+
+        else:
+            for index, task in enumerate(my_tasks, start = 1): #Since python starts indexing with 0
+                print(f"{index}.{task}")
+
+    elif user_choice == "3":
+        remove_task = int(input("⛔ Enter the task number you want to remove: "))
+
+        if len(my_tasks) == 0:
+            print("Nothing to remove ⁉️")
+        else:
+            my_tasks.pop(remove_task - 1)  #indexing starts at 0, eg. (3-1) = 2 [i.e 0, 1, 2, 3]
+            print(f"{remove_task} removed successfully! 🚫")
+
+    elif user_choice == "4":
+        break
+
+    else:
+        print("Invalid Input! ⚠️ Try again")
